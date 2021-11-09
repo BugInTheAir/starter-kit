@@ -1,0 +1,37 @@
+<div class="card" style="width: 25rem" *ngIf="theChoosenFile !== null && isFileInformationToggle">
+  <div class="card-header">
+    <div>File Information</div>
+    <div class="closeIcon">
+      <i (click)="toggleCloseFileInformation()" class="ms-Icon ms-font-xl ms-Icon--ChromeClose closeIcon"></i>
+    </div>
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Type: {{ theChoosenFile.Type === 1 ? 'Excel' : 'Folder' }}</h5>
+    <div class="input-group flex-nowrap">
+      <span class="input-group-text" id="addon-wrapping">Name</span>
+      <input
+        type="text"
+        class="form-control"
+        placeholder="{{ theChoosenFile.Name.split('.')[0] }}"
+        [formControl]="fileNameForm"
+        aria-label="Username"
+        aria-describedby="addon-wrapping"
+      />
+      <span class="input-group-text" id="addon-wrapping"
+        >.{{ theChoosenFile.Name.split('.')[1] === undefined ? '' : theChoosenFile.Name.split('.')[1] }}</span
+      >
+    </div>
+    <p class="card-text">Modified Date: {{ theChoosenFile.ModifiedDate }}</p>
+    <p class="card-text">Modified By: {{ theChoosenFile.ModifiedBy }}</p>
+    <p class="card-text">Created By: {{ theChoosenFile.CreateBy }}</p>
+    <p class="card-text">Created Date: {{ theChoosenFile.CreateDate }}</p>
+  </div>
+  <div class="card-footer">
+    <div class="left">
+      <button class="btn btn-primary" (click)="updateBtnClick()" type="submit">Update</button>
+    </div>
+    <div class="right">
+      <button type="button" class="btn btn-danger" (click)="deleteBtnClick()">Delete</button>
+    </div>
+  </div>
+</div>

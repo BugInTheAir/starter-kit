@@ -1,0 +1,18 @@
+.file-menu {
+  position: absolute;
+  display: flex;
+  flex-flow: row wrap;
+  margin: 0;
+  width: 200px;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  .ms-Icon {
+    margin: {
+      left: 0.5rem;
+    }
+  }
+  &:hover {
+    cursor: pointer;
+  }
+}

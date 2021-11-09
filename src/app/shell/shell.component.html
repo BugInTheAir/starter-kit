@@ -1,2 +1,8 @@
-<app-header></app-header>
-<router-outlet></router-outlet>
+<app-header
+  [isLoggedIn]="isLoggedIn$ | async"
+  (btnLogginClicked)="login()"
+  [userName]="userName$ | async"
+  [userFullname]="userFullName$ | async"
+></app-header>
+<router-outlet *ngIf="isLoggedIn$ | async"></router-outlet>
+<!-- *ngIf="isLoggedIn$ | async" -->

@@ -1,0 +1,57 @@
+@import "../../../../theme/theme-variables.scss";
+@import "../../../../theme/mixin.scss";
+.nav {
+  background: $toolbar;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  .export__function {
+    color: black;
+  }
+  .export__function:hover {
+    opacity: 0.5;
+  }
+  .dropdown-toggle::after {
+    color: $gray-800;
+  }
+  .dropdown-item:hover {
+    cursor: pointer;
+  }
+  a {
+    :hover {
+      cursor: pointer;
+    }
+    will-change: cursor;
+  }
+}
+.large__view {
+  @include for_breakpoint(mobile) {
+    display: none;
+  }
+  will-change: display;
+}
+.small__view {
+  display: none;
+  @include for_breakpoint(mobile) {
+    display: flex;
+    width: 100%;
+    justify-items: flex-end;
+    justify-content: flex-end;
+    flex-flow: row nowrap;
+    background: $toolbar;
+  }
+  will-change: display;
+}
+.small__nav__item__content {
+  position: absolute;
+  width: 100%;
+  .small__nav__item {
+    display: none;
+    @include for_breakpoint(mobile) {
+      display: block;
+    }
+    .first__tier:hover {
+      cursor: pointer;
+      opacity: 0.7;
+    }
+    will-change: display, opacity;
+  }
+}

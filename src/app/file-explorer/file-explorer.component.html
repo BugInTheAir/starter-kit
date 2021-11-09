@@ -1,0 +1,28 @@
+<app-tool-bar (addNewFileEvent)="toggleCreateFile()"> </app-tool-bar>
+<app-file-content
+  [navigationTracer]="folderNavigation$ | async"
+  [isDataLoaded]="isDataLoaded$ | async"
+  [currentFiles]="currentItems$ | async"
+  [isAddFolderToggle]="isAddFolderToggled$ | async"
+  [currentFolder]="currentFolder$ | async"
+  (contextMenuClick)="onrightClick($any($event))"
+  (disableContextClick)="disableContextMenu()"
+  (onCreateFolderClick)="onCreateFolder($any($event))"
+  (onToggleOpenFileInfo)="toggleOpenFileInformation($any($event))"
+  (onGoBackEvent)="goBackToPreviousFolderClick()"
+></app-file-content>
+<app-file-menu
+  [x]="contextmenuX"
+  [y]="contextmenuY"
+  *ngIf="contextmenu"
+  (toggleAddFolder)="toggleAddFolder()"
+  (toggleAddFile)="toggleCreateFile()"
+></app-file-menu>
+<app-file-info
+  [theChoosenFile]="theChoosenFile$ | async"
+  [isFileInformationToggle]="isFileInformationToggle$ | async"
+  [dialog]="matDialog"
+  (deleteFileEvent)="deleteChoosenFile($any($event))"
+  (closeFileInformationEvent)="toggleCloseFileInformation()"
+  (updateFileEvent)="updateChoosenFile($any($event))"
+></app-file-info>

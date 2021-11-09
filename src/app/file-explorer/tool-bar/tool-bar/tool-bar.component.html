@@ -1,0 +1,132 @@
+<ul class="nav large__view">
+  <li class="nav-item">
+    <a class="nav-link dropdown-toggle" id="newMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+      <span class="export__function">
+        <i class="ms-Icon ms-font-sm ms-Icon--Add" style="color: palevioletred"></i>
+        New
+      </span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="newMenuLink">
+      <li><a class="dropdown-item" (click)="addNewFileBtn()">Add file</a></li>
+      <li><a class="dropdown-item">Another action</a></li>
+      <li><a class="dropdown-item">Something else here</a></li>
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link dropdown-toggle" id="importMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+      <span class="export__function">
+        <i class="ms-Icon ms-font-sm ms-Icon--Download" style="color: palevioletred"></i>
+        Import
+      </span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="importMenuLink">
+      <li><a class="dropdown-item">Action</a></li>
+      <li><a class="dropdown-item">Another action</a></li>
+      <li><a class="dropdown-item">Something else here</a></li>
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link">
+      <span class="export__function">
+        <i class="ms-Icon ms-font-sm ms-Icon--ExcelDocument" style="color: green"></i>
+        Export to excel
+      </span>
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link">
+      <span class="export__function">
+        <i class="ms-Icon ms-font-sm ms-Icon--Flow" style="color: palevioletred"></i>
+        Sync
+      </span>
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link">
+      <span class="export__function">
+        <i class="ms-Icon ms-font-sm ms-Icon--More" style="color: black"></i>
+      </span>
+    </a>
+  </li>
+</ul>
+<div class="small__view">
+  <a
+    class="btn"
+    data-bs-toggle="collapse"
+    href="#burgerCollapse"
+    role="button"
+    aria-expanded="false"
+    aria-controls="burgerCollapse"
+  >
+    <i class="ms-Icon ms-font-lg ms-Icon--CollapseMenu" style="color: black"></i>
+  </a>
+</div>
+<div class="collapse small__nav__item__content" id="burgerCollapse">
+  <div class="small__nav__item" data-bs-toggle="collapse" href="#newCollapse" role="button" aria-expanded="false">
+    <div class="card card-body first__tier">
+      <a>
+        <span>
+          <i class="ms-Icon ms-font-sm ms-Icon--Add" style="color: palevioletred"></i>
+          New
+        </span>
+      </a>
+    </div>
+    <div class="collapse" id="newCollapse">
+      <div class="card card-body">
+        <a
+          ><span>
+            <i class="ms-Icon ms-font-sm ms-Icon--ExcelDocument" style="color: green"></i>
+            New excel
+          </span></a
+        >
+      </div>
+      <div class="card card-body">
+        <a
+          ><span>
+            <i class="ms-Icon ms-font-sm ms-Icon--WordDocument" style="color: blue"></i>
+            New word
+          </span></a
+        >
+      </div>
+    </div>
+  </div>
+  <div class="small__nav__item">
+    <div class="card card-body first__tier">
+      <a>
+        <span>
+          <i class="ms-Icon ms-font-sm ms-Icon--Download" style="color: palevioletred"></i>
+          Import
+        </span>
+      </a>
+    </div>
+  </div>
+  <div class="small__nav__item">
+    <div class="card card-body first__tier">
+      <a>
+        <span>
+          <i class="ms-Icon ms-font-sm ms-Icon--ExcelDocument" style="color: green"></i>
+          Export to excel
+        </span>
+      </a>
+    </div>
+  </div>
+  <div class="small__nav__item">
+    <div class="card card-body first__tier">
+      <a>
+        <span>
+          <i class="ms-Icon ms-font-sm ms-Icon--Flow" style="color: palevioletred"></i>
+          Sync
+        </span>
+      </a>
+    </div>
+  </div>
+  <div class="small__nav__item">
+    <div class="card card-body first__tier">
+      <a>
+        <span>
+          <i class="ms-Icon ms-font-sm ms-Icon--More" style="color: palevioletred"></i>
+        </span>
+      </a>
+    </div>
+  </div>
+</div>

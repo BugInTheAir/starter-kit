@@ -1,0 +1,153 @@
+<div class="file-content__container">
+  <div class="file-content__title">
+    <button
+      (click)="goBackToPreviousFolderBtnClick()"
+      mat-mini-fab
+      color="secondary"
+      *ngIf="navigationTracer !== undefined && navigationTracer?.length !== 0"
+      aria-label="Example icon button with a delete icon"
+    >
+      <mat-icon>
+        <i class="ms-Icon ms-font-sm ms-Icon--Back"></i>
+      </mat-icon>
+    </button>
+    <h2 *ngIf="navigationTracer === undefined || navigationTracer?.length === 0">
+      {{ defaultRoot }}
+    </h2>
+    <h2 *ngIf="navigationTracer !== undefined && navigationTracer?.length !== 0">
+      {{ currentFolder?.Name }}
+    </h2>
+  </div>
+
+  <div class="file-detail__container" (click)="disableContextMenu()" oncontextmenu="return false;">
+    <div class="file-detail__row__large header-line">
+      <div class="row__placeholder"></div>
+      <div class="detail-info-icon__large">
+        <i class="ms-Icon ms-font-sm ms-Icon--Page"></i>
+      </div>
+      <div class="detail-info-text__large">
+        <span>
+          Name
+          <i class="ms-Icon ms-font-sm ms-Icon--ChevronDown"></i>
+        </span>
+      </div>
+      <div class="detail-info-text__large">
+        <span>
+          Modified Date
+          <i class="ms-Icon ms-font-sm ms-Icon--ChevronDown"></i>
+        </span>
+      </div>
+      <div class="detail-info-text__large">
+        <span>
+          Modified By
+          <i class="ms-Icon ms-font-sm ms-Icon--ChevronDown"></i>
+        </span>
+      </div>
+      <div class="detail-info-text__large">
+        <span>
+          <i class="ms-Icon ms-font-sm ms-Icon--Add"></i>
+          Add Column
+        </span>
+      </div>
+    </div>
+    <div class="skeleton" *ngIf="!isDataLoaded">
+      <div class="file-detail__row__large file-detail-info__row__large">
+        <div class="row__placeholder"></div>
+        <div class="detail-info-icon__large">
+          <div class="circle"></div>
+        </div>
+        <div class="detail-info-text__large">
+          <div class="rectangle"></div>
+        </div>
+        <div class="detail-info-text__large">
+          <div class="rectangle"></div>
+        </div>
+        <div class="detail-info-text__large">
+          <div class="rectangle"></div>
+        </div>
+      </div>
+      <div class="file-detail__row__large file-detail-info__row__large">
+        <div class="row__placeholder"></div>
+        <div class="detail-info-icon__large">
+          <div class="circle"></div>
+        </div>
+        <div class="detail-info-text__large">
+          <div class="rectangle"></div>
+        </div>
+        <div class="detail-info-text__large">
+          <div class="rectangle"></div>
+        </div>
+        <div class="detail-info-text__large">
+          <div class="rectangle"></div>
+        </div>
+      </div>
+      <div class="file-detail__row__large file-detail-info__row__large">
+        <div class="row__placeholder"></div>
+        <div class="detail-info-icon__large">
+          <div class="circle"></div>
+        </div>
+        <div class="detail-info-text__large">
+          <div class="rectangle"></div>
+        </div>
+        <div class="detail-info-text__large">
+          <div class="rectangle"></div>
+        </div>
+        <div class="detail-info-text__large">
+          <div class="rectangle"></div>
+        </div>
+      </div>
+      <div class="file-detail__row__large file-detail-info__row__large">
+        <div class="row__placeholder"></div>
+        <div class="detail-info-icon__large">
+          <div class="circle"></div>
+        </div>
+        <div class="detail-info-text__large">
+          <div class="rectangle"></div>
+        </div>
+        <div class="detail-info-text__large">
+          <div class="rectangle"></div>
+        </div>
+        <div class="detail-info-text__large">
+          <div class="rectangle"></div>
+        </div>
+      </div>
+    </div>
+    <div class="file-list" *ngIf="isDataLoaded" (contextmenu)="rightClickEvent($event)">
+      <div class="file-detail__row__large file-detail-info__row__large" *ngIf="isAddFolderToggle">
+        <div class="row__placeholder"></div>
+        <div class="detail-info-icon__large">
+          <span>
+            <i class="ms-Icon ms-font-xl ms-Icon--FolderFill" style="color: yellow; transform: rotate(-90deg)"></i>
+          </span>
+        </div>
+        <div class="detail-info-text__large">
+          <input autofocus type="text" [formControl]="folderNameFormControl" (keyup.enter)="onCreateFolder()" />
+        </div>
+      </div>
+      <div class="file-detail__row__large file-detail-info__row__large defaut-list" *ngFor="let file of currentFiles">
+        <div class="row__placeholder"></div>
+        <div class="detail-info-icon__large">
+          <span *ngIf="file.Type === 0">
+            <i class="ms-Icon ms-font-xl ms-Icon--FolderFill" style="color: yellow; transform: rotate(-90deg)"></i>
+          </span>
+          <span *ngIf="file.Type === 1">
+            <i class="ms-Icon ms-font-xl ms-Icon--ExcelDocument" style="color: green"></i>
+          </span>
+        </div>
+        <div class="detail-info-text__large" (click)="onFileClick(file.ID)">
+          {{ file.Name }}
+        </div>
+        <div class="detail-info-text__large">
+          {{ file.ModifiedDate }}
+        </div>
+        <div class="detail-info-text__large">
+          {{ file.ModifiedBy }}
+        </div>
+        <div class="fileId">
+          {{ file.ID }}
+        </div>
+      </div>
+    </div>
+    <div class="file-detail__row__small"></div>
+  </div>
+</div>

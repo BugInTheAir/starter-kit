@@ -1,0 +1,115 @@
+@import "../../../theme/theme-variables.scss";
+@import "../../../theme/mixin.scss";
+.file-content__container {
+  display: block;
+  width: 100%;
+  height: 30px;
+  .file-content__title {
+    display: flex;
+    flex-flow: row wrap;
+    margin: {
+      left: 10%;
+      top: 2rem;
+    }
+    h2 {
+      margin-left: 0.5rem;
+    }
+    width: calc(100% - 20%);
+    color: $gray-600;
+  }
+  .file-detail__container {
+    margin: {
+      left: 10%;
+      right: 10%;
+      top: 1rem;
+    }
+    width: calc(100% - 20%);
+    height: auto;
+    flex-flow: row nowrap;
+
+    .file-detail__row__large {
+      display: flex;
+      flex-flow: row wrap;
+      .row__placeholder {
+        flex-basis: 5%;
+      }
+      .fileId {
+        display: none;
+      }
+      .detail-info-icon__large {
+        flex-basis: 5%;
+        &:hover {
+          cursor: pointer;
+          opacity: 0.5;
+        }
+        .circle {
+          width: 25px;
+          height: 25px;
+          border-radius: 50%;
+          will-change: background;
+          animation-name: loading;
+          animation-duration: 0.8s;
+          animation-iteration-count: infinite;
+        }
+      }
+      .detail-info-text__large {
+        flex-basis: 20%;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        &:hover {
+          cursor: pointer;
+          opacity: 0.5;
+        }
+        .rectangle {
+          height: 30px;
+          width: 90%;
+          border-radius: 25px;
+          will-change: background;
+          animation-name: loading;
+          animation-duration: 0.8s;
+          animation-iteration-count: infinite;
+        }
+        @keyframes loading {
+          0% {
+            background: linear-gradient(hsla(0, 0%, 0%, 0.8), transparent);
+          }
+          20% {
+            background: linear-gradient(hsla(0, 1%, 21%, 0.8), transparent);
+          }
+          40% {
+            background: linear-gradient(hsla(0, 1%, 32%, 0.8), transparent);
+          }
+          60% {
+            background: linear-gradient(hsla(0, 0%, 41%, 0.8), transparent);
+          }
+          80% {
+            background: linear-gradient(hsla(0, 1%, 50%, 0.8), transparent);
+          }
+          100% {
+            background: linear-gradient(hsla(0, 1%, 55%, 0.8), transparent);
+          }
+        }
+      }
+      @include for_breakpoint(mobile) {
+        display: none;
+      }
+    }
+    .header-line {
+      border-bottom: 2px solid $toolbar;
+    }
+    .file-detail-info__row__large {
+      margin: {
+        top: 1rem;
+      }
+    }
+    .skeleton {
+      padding: {
+        top: 1rem;
+        bottom: 1rem;
+      }
+      margin: {
+        top: 1rem;
+      }
+    }
+  }
+}

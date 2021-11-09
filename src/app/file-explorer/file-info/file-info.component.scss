@@ -1,0 +1,50 @@
+.card {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100vh;
+  .card-header {
+    display: flex;
+    background-color: #353b48;
+    color: white;
+    flex-flow: row wrap;
+    width: 100%;
+    div {
+      display: flex;
+      width: 50%;
+      align-items: center;
+    }
+    .closeIcon {
+      &:hover {
+        cursor: pointer;
+      }
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      width: 50%;
+    }
+  }
+
+  .input-group {
+    margin: {
+      top: 0.5rem;
+      bottom: 0.5rem;
+    }
+  }
+  .card-footer {
+    display: flex;
+    flex-flow: row wrap;
+    align-content: space-between;
+    width: 100%;
+    .left {
+      display: flex;
+      justify-content: center;
+      width: 50%;
+    }
+    .right {
+      display: flex;
+      justify-content: center;
+      width: 50%;
+    }
+  }
+}
